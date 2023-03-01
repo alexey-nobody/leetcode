@@ -1,17 +1,15 @@
 // Problem - https://leetcode.com/problems/single-number/
-// Runtime: 316 ms
-// Memory Usage: 163.6 MB
+// Runtime: 293 ms (Beats 96.35%)
+// Memory Usage: 146.2 MB (Beats 94.16%)
 
 class Solution {
   int singleNumber(List<int> nums) {
-    nums.sort();
+    int result = 0;
 
-    for (int i = 0; i < nums.length - 1; i = i + 2) {
-      if (nums[i] != nums[i + 1]) {
-        return nums[i];
-      }
+    for (final singleNum in nums) {
+      result ^= singleNum;
     }
 
-    return nums.last;
+    return result;
   }
 }
